@@ -18,6 +18,7 @@ export default function GamePage() {
     useEffect(() => {
         // setSocket(new SockJS('http://localhost:8080/game'))
         setSocket(new SockJS('/game'))
+
     }, [])
 
     if (shouldCreateStompClient()) createStompClient();
@@ -151,12 +152,16 @@ export default function GamePage() {
         if (gameSession && gameSession.victoriousPlayerId != null) {
             return (
                 <div className="center">
-                    <div style={{ width: "max-content" }}>
-                        <h1 className="text-white mt-5 titleTextSize specialFont">
+                        <h1 className="text-white mt-5 disconnectedTextSize specialFont">
                             {returnWinnerName()}
                         </h1>
                         <br></br>
-                        <button className="textSize btnCs m-auto p-4 btnTextSize specialFont" onClick={playAgain}>Play Again</button>
+                        <div style={{ margin: "1rem" }}>
+                            <button className="textSize btnCs m-auto p-4 btnTextSize specialFont" onClick={playAgain}>Play Again</button>
+                            <br />
+                        </div>
+                        <div style={{ margin: "1rem" }}>
+                            <button className="textSize btnCs m-auto p-4 btnTextSize specialFont" onClick={playAgain}>HOME</button>
                     </div>
                 </div>
             )
@@ -167,13 +172,17 @@ export default function GamePage() {
         if (gameSession && gameSession.gameState === "ENDED" && !gameSession.victoriousPlayerId) {
             return (
                 <div className="center">
-                    <div style={{ width: "max-content" }}>
-                        <h1 className="text-white mt-5 titleTextSize specialFont">
+                        <h1 className="text-white mt-5 disconnectedTextSize specialFont">
                             No Winner
                         </h1>
                         <br></br>
-                        <button className="textSize btnCs m-auto p-4 btnTextSize specialFont" onClick={playAgain}>Play Again</button>
-                    </div>
+                        <div style={{ margin: "1rem" }}>
+                            <button className="textSize btnCs m-auto p-4 btnTextSize specialFont" onClick={playAgain}>Play Again</button>
+                        </div>
+                        <br />
+                        <div style={{ margin: "1rem" }}>
+                            <button className="textSize btnCs m-auto p-4 btnTextSize specialFont" onClick={playAgain}>HOME</button>
+                        </div>
                 </div>
             )
         }
@@ -195,7 +204,13 @@ export default function GamePage() {
                         Other player disconnected from game
                     </h1>
                     <br></br>
-                    <button className="textSize btnCs m-auto p-4 btnTextSize specialFont" onClick={playAgain}>Play Again</button>
+                    <div style={{ margin: "1rem" }}>
+                        <button className="textSize btnCs m-auto p-4 btnTextSize specialFont" onClick={playAgain}>Play Again</button>
+                    </div>
+                    <br />
+                    <div style={{ margin: "1rem" }}>
+                        <button className="textSize btnCs m-auto p-4 btnTextSize specialFont" onClick={playAgain}>HOME</button>
+                    </div>
                 </div>
             )
         }

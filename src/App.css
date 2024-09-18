@@ -39,12 +39,17 @@ body {
 }
 
 .center {
-  position: absolute;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  left: 50%;
-  background-color: rgb(0 0 0 / .7);
-  padding: 20rem;
+  display: flex;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    background-color: rgb(0 0 0 / .7);
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 @keyframes App-logo-spin {
@@ -72,9 +77,8 @@ body {
   color: black;
 }
 
-
 .btnTextSize {
-  font-size: 3vw;
+  font-size: 2vw;
 }
 
 .titleTextSize {
@@ -86,7 +90,7 @@ body {
 }
 
 .disconnectedTextSize {
-  font-size: 5vw;
+  font-size: 2vw;
 }
 
 .waitingTextSize {
@@ -131,7 +135,7 @@ body {
 @media only screen and (max-width: 900px) {
 
   .btnTextSize {
-    font-size: 4vw;
+    font-size: 3vw;
   }
 
   .titleTextSize {
@@ -139,7 +143,7 @@ body {
   }
 
   .disconnectedTextSize {
-    font-size: 4vw;
+    font-size: 3vw;
   }
 
   .imageUploaderTextSize {
@@ -150,7 +154,7 @@ body {
 @media only screen and (max-width: 660px) {
 
   .btnTextSize {
-    font-size: 4vw;
+    font-size: 3vw;
   }
 
 }
