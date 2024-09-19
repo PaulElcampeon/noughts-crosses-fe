@@ -1,9 +1,9 @@
-body {
+html, body {
   margin: 0%;
   padding: 0%;
   height: 100%;
   background-color: black;
-  text-align: center;
+  box-sizing: border-box;
 }
 
 .mainDiv {
@@ -93,10 +93,6 @@ body {
   font-size: 2vw;
 }
 
-.waitingTextSize {
-  font-size: 3vw;
-}
-
 .specialFont {
   font-family: 'Press Start 2P', cursive;
 }
@@ -156,5 +152,53 @@ body {
   .btnTextSize {
     font-size: 3vw;
   }
+
+}
+
+
+
+.home-page-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  text-align: center;
+}
+
+.title {
+  font-size: calc(1rem + 2vw);
+} 
+
+.special-font {
+  font-family: 'Press Start 2P', cursive;
+}
+
+.play-btn-container {
+  display: flex;
+  flex: 1;
+}
+
+.play-btn {
+  font-size: calc(0.5rem + 1vw);
+  -webkit-transition-duration: 0.4s;
+  /* Safari */
+  transition-duration: 0.4s;
+  background-color: black;
+  border: 2px solid White;
+  color: white;
+}
+
+.play-btn:hover {
+  background-color: white;
+  color: black;
+}
+
+.waiting-room-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.waiting-room-message {
+  font-size: calc(0.5rem + 1vw);
 
 }

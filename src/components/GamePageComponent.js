@@ -16,8 +16,8 @@ export default function GamePage() {
     const [gameSessionSubscription, setGameSessionSubscription] = useState(null);
 
     useEffect(() => {
-        // setSocket(new SockJS('http://localhost:8080/game'))
-        setSocket(new SockJS('/game'))
+        setSocket(new SockJS('http://localhost:8080/game'))
+        // setSocket(new SockJS('/game'))
 
     }, [])
 
