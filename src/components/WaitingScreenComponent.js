@@ -1,40 +1,25 @@
-import React, {Component} from 'react';
+import React, { useState, useEffect } from 'react';
 import '../App.css';
 
 
-class WaitingScreen extends Component {
-    constructor() {
-        super();
-        this.state = {
-            dotCounter: "."
-        }
-    }
+export default function WaitingScreen() {
+    const [dotCounter, setDotCounter] = useState(".");
 
-    render() {
-        return (
-            <div className="mainDiv">
-                <h1 className="m-auto waitingTextSize specialFont">Finding another player {this.state.dotCounter}</h1>
-            </div>
-        )
-    }
-
-    componentDidMount() {
-        this.myInterval = setInterval(() => {
-            if (this.state.dotCounter.length > 6) {
-                this.setState({
-                    dotCounter: "."
-                })
+    useEffect(() => {
+        const interval = setInterval(() => {
+            if (dotCounter.length > 6) {
+                setDotCounter(".");
             } else {
-                this.setState( {
-                    dotCounter: this.state.dotCounter+"."
-                })
+                setDotCounter(dotCounter + ".")
             }
-        },1000)
-    }
+        }, 1000)
 
-    componentWillUnmount() {
-        clearInterval(this.myInterval)
-    }
+        return () => clearInterval(interval);
+    }, [dotCounter])
+
+    return (
+        <div className="waiting-room-container">
+            <h1 className="m-auto waiting-room-message special-font">Finding another player {dotCounter}</h1>
+        </div>
+    )
 }
-
-export default WaitingScreen;
