@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import '../App.css';
 import WaitingScreen from '../components/WaitingScreenComponent'
-import BoardComponent from '../components/BoardComponent'
+import BoardComponent from '../components/BoardComponent2'
 import { v4 as uuidv7 } from 'uuid';
 import SockJS from 'sockjs-client';
 import Stomp from 'stompjs';

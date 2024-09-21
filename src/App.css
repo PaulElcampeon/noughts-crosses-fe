@@ -1,4 +1,5 @@
-html, body {
+html,
+body {
   margin: 0%;
   padding: 0%;
   height: 100%;
@@ -40,16 +41,16 @@ html, body {
 
 .center {
   display: flex;
-    position: absolute;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    left: 50%;
-    background-color: rgb(0 0 0 / .7);
-    width: 100%;
-    height: 100%;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  background-color: rgb(0 0 0 / .7);
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 @keyframes App-logo-spin {
@@ -124,8 +125,8 @@ html, body {
 
 .uploadContainer {
   flex: 1;
-    display: flex;
-    margin: auto;
+  display: flex;
+  margin: auto;
 }
 
 @media only screen and (max-width: 900px) {
@@ -156,6 +157,14 @@ html, body {
 }
 
 
+/* Common */
+
+.special-font {
+  font-family: 'Press Start 2P', cursive;
+}
+
+
+/* Home Page */
 
 .home-page-container {
   display: flex;
@@ -166,10 +175,6 @@ html, body {
 
 .title {
   font-size: calc(1rem + 2vw);
-} 
-
-.special-font {
-  font-family: 'Press Start 2P', cursive;
 }
 
 .play-btn-container {
@@ -192,6 +197,8 @@ html, body {
   color: black;
 }
 
+/* Waiting Room */
+
 .waiting-room-container {
   display: flex;
   flex-direction: column;
@@ -200,5 +207,50 @@ html, body {
 
 .waiting-room-message {
   font-size: calc(0.5rem + 1vw);
-
 }
+
+/* Board */
+
+.board {
+  display: flex;
+  flex-direction: column;
+  height: 80vh;
+}
+
+.board-cell-container {
+  /* flex: 1; */
+  /* position: relative; */
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  width: calc(80px + 50vw);
+  height: calc(80px + 50vw);
+  margin: auto;
+}
+
+.board-cell {
+  background-color: blue;
+  border-style: solid;
+  border-width: 5px;
+  border-color: white;
+}
+
+/* .canvas-container {
+  position: relative;
+  width: 80%;
+}
+
+.board-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.game-information {
+  font-size: calc(0.5rem + 2.5vw);
+}
+
+canvas {
+  width: 100%;
+  height: 100%;
+} */
