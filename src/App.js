@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import HomePage from './components/HomePageComponent1';
+import HomePage from './components/HomePageComponent';
 import GamePage from './components/GamePageComponent';
 
 const Error = () => {

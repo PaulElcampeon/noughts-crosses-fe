@@ -63,20 +63,20 @@ export default function BoardComponent({name, activePlayerId, id, board, sendBoa
         const boardCells = [];
         for (let row = 0; row < 3; row++) {
             for (let column = 0; column < 3; column++) {
-                boardCells.push(<BoardCellComponent key={boardCells.length} playerId={activePlayerId} gameId={id} row ={row} column={column} sendBoardAction={sendBoardAction}/>)
+                boardCells.push(<BoardCellComponent key={boardCells.length} symbol={getSymbol(board.positions[row][column])} playerId={name} activePlayerId={activePlayerId} gameId={id} row ={row} column={column} sendBoardAction={sendBoardAction}/>)
             }
         }
 
         return boardCells;
     }
 
-    function renderCorrectSign() {
-        if (sign === 0) {
+    function getSymbol(symbolValue) {
+        if (symbolValue === 0) {
             return ""
-        } else if (sign === 1) {
-            return "O"
+        } else if (symbolValue === 1) {
+            return "nought"
         } else {
-            return "X"
+            return "cross"
         }
     }
 
@@ -142,7 +142,7 @@ export default function BoardComponent({name, activePlayerId, id, board, sendBoa
 
     function gameInformation() {
         return (
-            <h1 className="text-white text-center mb-5 pb-5 titleTextSize specialFont">
+            <h1 className="text-white text-center mb-5 pb-5 game-information special-font">
                 {getWhosTurn()}
             </h1>
         )

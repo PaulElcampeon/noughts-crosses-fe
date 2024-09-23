@@ -78,25 +78,11 @@ body {
   color: black;
 }
 
-.btnTextSize {
-  font-size: 2vw;
-}
-
-.titleTextSize {
-  font-size: 5vw;
-}
 
 .imageUploaderTextSize {
   font-size: 2vw;
 }
 
-.disconnectedTextSize {
-  font-size: 2vw;
-}
-
-.specialFont {
-  font-family: 'Press Start 2P', cursive;
-}
 
 .symbolUploaderContainer {
   padding: 1rem;
@@ -163,6 +149,21 @@ body {
   font-family: 'Press Start 2P', cursive;
 }
 
+.disconnected-text {
+  font-size: 2vw;
+}
+
+.winner-message {
+  font-size: calc(1rem + 1vw);
+}
+
+.no-winner-message {
+  font-size: calc(1rem + 1vw);
+}
+
+.btn-text {
+  font-size: 2vw;
+}
 
 /* Home Page */
 
@@ -197,6 +198,21 @@ body {
   color: black;
 }
 
+.home-btn {
+  font-size: calc(0.5rem + 1vw);
+  -webkit-transition-duration: 0.4s;
+  /* Safari */
+  transition-duration: 0.4s;
+  background-color: black;
+  border: 2px solid White;
+  color: white;
+}
+
+.home-btn:hover {
+  background-color: white;
+  color: black;
+}
+
 /* Waiting Room */
 
 .waiting-room-container {
@@ -218,22 +234,46 @@ body {
 }
 
 .board-cell-container {
-  /* flex: 1; */
-  /* position: relative; */
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr;
   width: calc(80px + 50vw);
   height: calc(80px + 50vw);
+  max-height: 500px;
+  max-width: 500px;
   margin: auto;
 }
 
 .board-cell {
-  background-color: blue;
   border-style: solid;
   border-width: 5px;
   border-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1px;
 }
+
+.nought {
+  background-color: green;
+  width: 60%;
+  height: 60%;
+}
+
+
+.cross {
+  background-color: yellow;
+  width: 60%;
+  height: 60%;
+}
+
+.game-information {
+  font-size: calc(0.5rem + 2.5vw);
+}
+
+/* .cross::after {
+  content: 'X';
+} */
 
 /* .canvas-container {
   position: relative;

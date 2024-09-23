@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Navigate } from 'react-router-dom';
 import '../App.css';
 import WaitingScreen from '../components/WaitingScreenComponent'
 import BoardComponent from '../components/BoardComponent2'
@@ -7,6 +8,7 @@ import SockJS from 'sockjs-client';
 import Stomp from 'stompjs';
 
 export default function GamePage() {
+    const [redirect, setRedirect] = useState(false);
     const [connected, setConnected] = useState(false);
     const [socket, setSocket] = useState(null);
     const [stompClient, setStompClient] = useState(null);
@@ -18,7 +20,7 @@ export default function GamePage() {
     useEffect(() => {
         setSocket(new SockJS('http://localhost:8080/game'))
         // setSocket(new SockJS('/game'))
-
+        // return () => stompClient.disconnect((e) => console.log(e))
     }, [])
 
     if (shouldCreateStompClient()) createStompClient();
@@ -152,16 +154,16 @@ export default function GamePage() {
         if (gameSession && gameSession.victoriousPlayerId != null) {
             return (
                 <div className="center">
-                        <h1 className="text-white mt-5 disconnectedTextSize specialFont">
-                            {returnWinnerName()}
-                        </h1>
-                        <br></br>
-                        <div style={{ margin: "1rem" }}>
-                            <button className="textSize btnCs m-auto p-4 btnTextSize specialFont" onClick={playAgain}>Play Again</button>
-                            <br />
-                        </div>
-                        <div style={{ margin: "1rem" }}>
-                            <button className="textSize btnCs m-auto p-4 btnTextSize specialFont" onClick={playAgain}>HOME</button>
+                    <h1 className="text-white mt-5 winner-message special-font">
+                        {returnWinnerName()}
+                    </h1>
+                    <br></br>
+                    <div style={{ margin: "1rem" }}>
+                        <button className="play-btn m-auto p-4 btn-text special-font" onClick={playAgain}>Play Again</button>
+                        <br />
+                    </div>
+                    <div style={{ margin: "1rem" }}>
+                        <button className="home-btn m-auto p-4 btn-text special-font" onClick={() => setRedirect(true)}>HOME</button>
                     </div>
                 </div>
             )
@@ -172,17 +174,17 @@ export default function GamePage() {
         if (gameSession && gameSession.gameState === "ENDED" && !gameSession.victoriousPlayerId) {
             return (
                 <div className="center">
-                        <h1 className="text-white mt-5 disconnectedTextSize specialFont">
-                            No Winner
-                        </h1>
-                        <br></br>
-                        <div style={{ margin: "1rem" }}>
-                            <button className="textSize btnCs m-auto p-4 btnTextSize specialFont" onClick={playAgain}>Play Again</button>
-                        </div>
-                        <br />
-                        <div style={{ margin: "1rem" }}>
-                            <button className="textSize btnCs m-auto p-4 btnTextSize specialFont" onClick={playAgain}>HOME</button>
-                        </div>
+                    <h1 className="text-white mt-5 no-winner-message special-font">
+                        No Winner
+                    </h1>
+                    <br></br>
+                    <div style={{ margin: "1rem" }}>
+                        <button className="play-btn m-auto p-4 btn-text special-font" onClick={playAgain}>Play Again</button>
+                    </div>
+                    <br />
+                    <div style={{ margin: "1rem" }}>
+                        <button className="home-btn m-auto p-4 btn-text special-font" onClick={() => setRedirect(true)}>HOME</button>
+                    </div>
                 </div>
             )
         }
@@ -200,16 +202,16 @@ export default function GamePage() {
         if (gameSession && gameSession.gameState === 'ENDED_DISCONNECT') {
             return (
                 <div className="center">
-                    <h1 className="text-white mt-5 disconnectedTextSize specialFont">
-                        Other player disconnected from game
+                    <h1 className="text-white mt-5 disconnected-text special-font">
+                        Opponent disconnected from game
                     </h1>
                     <br></br>
                     <div style={{ margin: "1rem" }}>
-                        <button className="textSize btnCs m-auto p-4 btnTextSize specialFont" onClick={playAgain}>Play Again</button>
+                        <button className="play-btn m-auto p-4 btn-text special-font" onClick={playAgain}>Play Again</button>
                     </div>
                     <br />
                     <div style={{ margin: "1rem" }}>
-                        <button className="textSize btnCs m-auto p-4 btnTextSize specialFont" onClick={playAgain}>HOME</button>
+                        <button className="home-btn m-auto p-4 btn-text special-font" onClick={() => setRedirect(true)}>HOME</button>
                     </div>
                 </div>
             )
@@ -222,8 +224,16 @@ export default function GamePage() {
         setGameSessionSubscription(null)
     }
 
+    function renderRedirectToHomePage() {
+        if (redirect) {
+            return <Navigate to="/home" replace />;
+        }
+        return null
+    }
+
     return (
         <div className="text-white mainDiv">
+            {renderRedirectToHomePage()}
             {showLoading()}
             {renderBoard()}
             {winnerMessage()}

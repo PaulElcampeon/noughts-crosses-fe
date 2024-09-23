@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
 import { Navigate } from 'react-router-dom';
-import ImageUploader from '../components/ImageUploaderComponent.js'
+import ImageUploader from './ImageUploaderComponent.js'
 import '../App.css';
 
 
 export default function HomePage() {
     const [redirect, setRedirect] = useState(false);
-    // const [symbol, setSymbol] = useState(false);
 
     function renderRedirectToGamePage() {
         if (redirect) {
@@ -16,17 +15,17 @@ export default function HomePage() {
     }
 
     return (
-        <div className="text-white mainDiv">
+        <div className="home-page-container text-white">
             {renderRedirectToGamePage()}
-            <h1 className="text-white mt-5 titleTextSize specialFont">Tic Tac Toe</h1>
-            <div className='flexy'>
-                <div className='buttonContainer'>
-                    <button className="textSize btnCs m-auto p-4 btnTextSize specialFont" onClick={() => setRedirect(true)}>PLAY</button>
+            <h1 className="text-white mt-5 title special-font">Tic Tac Toe</h1>
+            {/* <div className='flexy'> */}
+                <div className='play-btn-container'>
+                    <button className="m-auto p-4 play-btn special-font" onClick={() => setRedirect(true)}>PLAY</button>
                 </div>
-                <div className='uploadContainer'>
+                {/* <div className='uploadContainer'>
                     <ImageUploader></ImageUploader>
-                </div>
-            </div>
+                </div> */}
+            {/* </div> */}
         </div>
     )
 }
