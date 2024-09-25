@@ -7,38 +7,6 @@ body {
   box-sizing: border-box;
 }
 
-.mainDiv {
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-}
-
-.boardDiv {
-  width: 60vw;
-  height: 50vw;
-}
-
-.boarderthickness {
-  border-style: solid;
-  border-width: thick
-}
-
-.textMiddle {
-  height: 10em;
-  display: flex;
-  align-items: center;
-  justify-content: center
-}
-
-.blockProp {
-  top: 50%;
-}
-
-.asd {
-
-  vertical-align: middle
-}
-
 .center {
   display: flex;
   position: absolute;
@@ -53,36 +21,9 @@ body {
   justify-content: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-.btnCs {
-  -webkit-transition-duration: 0.4s;
-  /* Safari */
-  transition-duration: 0.4s;
-  background-color: black;
-  color: White;
-  border: 2px solid White;
-}
-
-.btnCs:hover {
-  background-color: white;
-  /* Green */
-  color: black;
-}
-
-
 .imageUploaderTextSize {
   font-size: 2vw;
 }
-
 
 .symbolUploaderContainer {
   padding: 1rem;
@@ -104,42 +45,10 @@ body {
   justify-content: space-evenly;
 }
 
-.buttonContainer {
-  display: flex;
-  flex: 1;
-}
-
 .uploadContainer {
   flex: 1;
   display: flex;
   margin: auto;
-}
-
-@media only screen and (max-width: 900px) {
-
-  .btnTextSize {
-    font-size: 3vw;
-  }
-
-  .titleTextSize {
-    font-size: 7vw;
-  }
-
-  .disconnectedTextSize {
-    font-size: 3vw;
-  }
-
-  .imageUploaderTextSize {
-    font-size: 3vw;
-  }
-}
-
-@media only screen and (max-width: 660px) {
-
-  .btnTextSize {
-    font-size: 3vw;
-  }
-
 }
 
 
@@ -165,6 +74,15 @@ body {
   font-size: 2vw;
 }
 
+
+/* Game Page */
+
+.game-page-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
 /* Home Page */
 
 .home-page-container {
@@ -184,7 +102,7 @@ body {
 }
 
 .play-btn {
-  font-size: calc(0.5rem + 1vw);
+  font-size: calc(0.3rem + 1vw);
   -webkit-transition-duration: 0.4s;
   /* Safari */
   transition-duration: 0.4s;
@@ -199,7 +117,7 @@ body {
 }
 
 .home-btn {
-  font-size: calc(0.5rem + 1vw);
+  font-size: calc(0.3rem + 1vw);
   -webkit-transition-duration: 0.4s;
   /* Safari */
   transition-duration: 0.4s;

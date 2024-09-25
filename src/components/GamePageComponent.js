@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Navigate } from 'react-router-dom';
 import '../App.css';
 import WaitingScreen from '../components/WaitingScreenComponent'
-import BoardComponent from '../components/BoardComponent2'
+import BoardComponent from './BoardComponent'
 import { v4 as uuidv7 } from 'uuid';
 import SockJS from 'sockjs-client';
 import Stomp from 'stompjs';
@@ -18,9 +18,9 @@ export default function GamePage() {
     const [gameSessionSubscription, setGameSessionSubscription] = useState(null);
 
     useEffect(() => {
-        setSocket(new SockJS('http://localhost:8080/game'))
-        // setSocket(new SockJS('/game'))
-        // return () => stompClient.disconnect((e) => console.log(e))
+        // setSocket(new SockJS('http://localhost:8080/game'))
+        setSocket(new SockJS('/game'))
+        // return () => stompClient.disconnect(() => console.log("Disconnected from server"))
     }, [])
 
     if (shouldCreateStompClient()) createStompClient();
@@ -226,13 +226,14 @@ export default function GamePage() {
 
     function renderRedirectToHomePage() {
         if (redirect) {
+            stompClient.disconnect(()=> console.log("Disconnected from websocket"))
             return <Navigate to="/home" replace />;
         }
         return null
     }
 
     return (
-        <div className="text-white mainDiv">
+        <div className="text-white game-page-container">
             {renderRedirectToHomePage()}
             {showLoading()}
             {renderBoard()}

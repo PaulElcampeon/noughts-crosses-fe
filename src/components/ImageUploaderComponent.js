@@ -31,7 +31,7 @@ export default function ImageUploader() {
   return (
     <div className='symbolUploaderContainer'>
       <div>
-        <p className='specialFont imageUploaderTextSize'>Upload Your Board <br/>Symbol & Play</p>
+        <p className='special-font imageUploaderTextSize'>Upload Your Board <br/>Symbol & Play</p>
 
         {/* File Input */}
         <input type="file" onChange={handleImageChange} accept="image/*" />
